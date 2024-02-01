@@ -1,25 +1,23 @@
 /* ===== IMPORTS ===== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /* ===== RESET START ===== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: "Poppins", sans-serif;
-    scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
-    text-decoration: none;
-    color:black;
+  text-decoration: none;
+  color: black;
 }
 
 li {
@@ -28,15 +26,131 @@ li {
 
 /* ===== RESET END ===== */
 
-
-
 /* CSS START */
 
+.output {
+  margin: 0 auto;
+  width: 50vw;
+  height: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 20px;
+}
 
+.border {
+  border: none;
+}
 
+header {
+  display: flex;
+  width: 50vw;
+  margin: 0 auto;
+  padding: 20px 20px;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.todo-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  padding: 10px;
+  transition: transform 2s ease-in-out;
+  background: lightgrey;
+  cursor: pointer;
+}
 
+.delete {
+  transform: translateX(-300vw);
+}
 
+.todo-item:not(.todo-item:last-child) {
+  border-bottom: 1px solid black;
+}
 
+.borderbottom {
+  border-bottom: none;
+}
 
+.delete-button {
+  color: red;
+  position: absolute;
+  right: 20px;
+}
 
+.todo-item:first-child {
+  border-radius: 20px 20px 0 0;
+}
+.todo-item:last-child {
+  border-radius: 0 0 20px 20px;
+}
+
+.todo-item:hover {
+  background: rgb(215, 241, 215);
+}
+
+.checked:not(.todo-item i) {
+  background: rgb(191, 238, 191);
+  font-weight: 600;
+}
+
+.checked span {
+  text-decoration: line-through;
+}
+
+.check {
+  margin: 0 10px;
+  color: green;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.clear {
+  color: darkgrey;
+  font-size: 1.6rem;
+}
+
+.clear:hover {
+  color: grey;
+  cursor: pointer;
+}
+
+.accordion {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.show-accordion {
+  display: block;
+}
+@media screen and (max-width: 1250px) {
+  .output {
+    width: 80vw;
+  }
+  header {
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .output {
+    width: 95vw;
+  }
+  header {
+    flex-flow: column nowrap;
+    width: 95vw;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+  }
+}
