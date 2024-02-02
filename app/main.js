@@ -21,23 +21,31 @@ let todoArray = [
 const renderItems = () => {
   output.innerHTML = "";
   todoArray.forEach((todo, index) => {
-    output.innerHTML += `<p class="todo-item" data-index="${index}"><i class="fa-solid fa-check check hidden"></i><span>${todo.title}</span><i class="fa-solid fa-x delete-button"></i></p>
-    <p class="accordion">${todo.note}</p>`;
+    output.innerHTML += `
+    <div class="todo-item" data-index="${index}">
+    <i class="fa-solid fa-check check hidden"></i>
+    <span>${todo.title}</span>
+    <i class="fa-solid fa-x delete-button"></i>
+    </div>
+    <p class="accordion">${todo.note}</p>
+    `;
   });
 
   const listItems = document.querySelectorAll(".todo-item");
-  const listItem = document.querySelector(".todo-item");
 
   /* check items */
   listItems.forEach((item, index) => {
     item.addEventListener("click", (e) => {
-      e.target.classList.toggle("checked");
-      e.target.classList.toggle("borderbottom");
-      const checkIcon = e.target.querySelector(".check");
+      item.classList.toggle("checked");
+      item.classList.toggle("borderbottom");
+      const checkIcon = item.querySelector(".check");
       checkIcon.classList.toggle("hidden");
-
-      const accordion = e.target.parentElement.querySelectorAll(".accordion");
-      accordion[index].classList.toggle("show-accordion");
+      console.log(item);
+      item.classList.toggle("dashed");
+      const accordion = item.parentElement.querySelectorAll(".accordion");
+      if (accordion) {
+        accordion[index].classList.toggle("show-accordion");
+      }
     });
   });
 

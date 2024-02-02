@@ -54,8 +54,9 @@ header {
 
 .todo-item {
   width: 100%;
-  height: 50px;
+  min-height: 50px;
   display: flex;
+  flex-flow: row wrap;
   position: relative;
   align-items: center;
   padding: 10px;
@@ -90,10 +91,10 @@ header {
 }
 
 .todo-item:hover {
-  background: rgb(215, 241, 215);
+  background: linear-gradient(180deg, rgb(215, 241, 215), rgb(214, 247, 210));
 }
 
-.checked:not(.todo-item i) {
+.todo-item.checked:not(.todo-item i) {
   background: rgb(191, 238, 191);
   font-weight: 600;
 }
@@ -102,6 +103,9 @@ header {
   text-decoration: line-through;
 }
 
+.checked p {
+  display: block;
+}
 .check {
   margin: 0 10px;
   color: green;
@@ -124,10 +128,14 @@ header {
 .accordion {
   display: none;
   width: 100%;
-  padding: 10px;
-  border-right: 1px solid black;
+  padding: 20px 50px;
+  width: 100%;
+  background: rgb(191, 238, 191);
   border-bottom: 1px solid black;
-  border-left: 1px solid black;
+}
+
+.dashed {
+  border-bottom: 1px dashed black !important;
 }
 
 .show-accordion {
